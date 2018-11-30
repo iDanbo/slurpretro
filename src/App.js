@@ -5,16 +5,19 @@ import firebase from 'firebase';
 import base from './base';
 import Main from './components/Main';
 
-class Home extends Component {
+class App extends Component {
   state = {
     uid: '',
     name: '',
+    loading: false,
   };
 
   componentDidMount() {
     // On mount check for if user is already authenticaed
     firebase.auth().onAuthStateChanged(user => {
-      user && this.authHandler({ user });
+      if (user) {
+        this.authHandler({ user });
+      }
     });
   }
 
@@ -35,15 +38,16 @@ class Home extends Component {
     const authProvider = new firebase.auth[`GoogleAuthProvider`]();
     firebase
       .auth()
-      .signInWithPopup(authProvider)
+      .signInWithRedirect(authProvider)
       .then(this.authHandler);
   };
   render() {
     if (!this.state.uid) {
       return <Login authenticate={this.authenticate} />;
     }
+
     return <Main logout={this.logout} uid={this.state.uid} name={this.state.name} />;
   }
 }
 
-export default Home;
+export default App;
