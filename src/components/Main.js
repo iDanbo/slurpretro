@@ -36,6 +36,7 @@ const AllWrapper = styled.div`
   }
 `
 
+const { Provider, Consumer } = React.createContext()
 class Main extends React.Component {
   state = {
     good: [],
@@ -125,9 +126,9 @@ class Main extends React.Component {
           <Step
             text="Make some wishes that you want to happen at Slurp 🧚‍🌟"
             color={wishColorQuestion}
-            textArray={this.state.wishes}
+            textArray={this.state.wishes.map(wish => wish.wish)}
             addStuff={wish => {
-              this.setState({ wishes: [wish, ...this.state.wishes] })
+              this.setState({ wishes: [{ wish: wish, isGreen: false }, ...this.state.wishes] })
             }}
             removeStuff={this.removeWish}
           />

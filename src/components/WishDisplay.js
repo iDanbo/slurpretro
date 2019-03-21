@@ -21,7 +21,11 @@ class WishDisplay extends React.Component {
   //   };
   render() {
     return (
-      <Card color={this.props.color} margin={this.props.margin || 0}>
+      <Card
+        color={this.props.color}
+        margin={this.props.margin || 0}
+        onClick={() => this.props.toggleWishColor(this.props.person, this.props.index)}
+      >
         <p>{this.props.text}</p>
       </Card>
     )

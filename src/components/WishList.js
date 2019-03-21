@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
+import firebase from 'firebase'
 import base from '../base'
 import styled from 'styled-components'
-import { wishColor } from '../utils/colors'
+import { wishColor, wishColorQuestion } from '../utils/colors'
 import GodDisplayCard from './GodDisplayCard'
 import WishDisplay from './WishDisplay'
 
@@ -40,6 +41,7 @@ const Wishes = styled.div`
 class WishList extends Component {
   state = {
     firebase: {},
+    name: '',
   }
 
   componentDidMount() {
@@ -49,18 +51,40 @@ class WishList extends Component {
       asArray: false,
       then: () => console.log(this.state.firebase),
     })
+    // On mount check for if user is already authenticaed
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.authHandler({ user })
+      }
+    })
+  }
+
+  // Handle authentication with firebases incoming data about the user
+  authHandler = authData => {
+    console.log(authData)
+    const { uid, displayName } = authData.user
+    this.setState({ name: displayName })
   }
 
   componentWillUnmount() {
     base.removeBinding(this.ref)
   }
 
+  toggleWishColor = (person, index) => {
+    if (
+      this.state.name === 'Daniel Egerev' ||
+      this.state.name === 'Manuel Linnankoski' ||
+      this.state.name === 'Rafael Linnankoski' ||
+      this.state.name === 'Tero Rehula'
+    ) {
+      const firebaseState = { ...this.state.firebase }
+      firebaseState[person].wishes[index].isGreen = !firebaseState[person].wishes[index].isGreen
+      this.setState({ firebase: firebaseState }, () => console.log(this.state.firebase))
+    }
+  }
+
   render() {
     const people = Object.keys(this.state.firebase)
-    console.log(people)
-
-    // const good = [].concat(...goods);
-
     return (
       <Content>
         <h4 className="title">
@@ -76,8 +100,16 @@ class WishList extends Component {
                 <PersonsWishes key={person}>
                   <h4>{person}</h4>
                   <Cards>
-                    {this.state.firebase[person].wishes.map(wish => (
-                      <WishDisplay key={wish} text={wish} color={wishColor} margin="10px" />
+                    {this.state.firebase[person].wishes.map((wish, index) => (
+                      <WishDisplay
+                        person={person}
+                        index={index}
+                        key={wish.wish}
+                        text={wish.wish}
+                        color={wish.isGreen ? wishColorQuestion : wishColor}
+                        margin="10px"
+                        toggleWishColor={this.toggleWishColor}
+                      />
                     ))}
                   </Cards>
                   <hr width="100%" />
