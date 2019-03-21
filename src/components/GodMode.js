@@ -51,7 +51,7 @@ class GodMode extends Component {
 
     return (
       <Content>
-        <h4 className="title">You are in God mode now 😇 Discuss how the pink text bubbles can be solved.</h4>
+        <h4 className="title">You are in God mode now 😇 Discuss how the red text bubbles can be solved.</h4>
 
         <Cards>
           {bad.map(text => (
