@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
-import { navigate } from '@reach/router';
+import styled from 'styled-components';
 import Login from './components/Login';
 import firebase from 'firebase';
-import base from './base';
 import Main from './components/Main';
+
+const Content = styled.div`
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-content: center;
+`;
 
 class App extends Component {
   state = {
@@ -14,6 +21,7 @@ class App extends Component {
 
   componentDidMount() {
     // On mount check for if user is already authenticaed
+    this.setState({ loading: true });
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         this.authHandler({ user });
@@ -25,7 +33,7 @@ class App extends Component {
   authHandler = authData => {
     console.log(authData);
     const { uid, displayName } = authData.user;
-    this.setState({ uid, name: displayName });
+    this.setState({ uid, name: displayName, loading: false });
   };
 
   logout = async () => {
@@ -34,16 +42,14 @@ class App extends Component {
     this.setState({ uid: null });
   };
 
-  authenticate = () => {
+  authenticate = async () => {
+    this.setState({ loading: true });
     const authProvider = new firebase.auth[`GoogleAuthProvider`]();
-    firebase
-      .auth()
-      .signInWithRedirect(authProvider)
-      .then(this.authHandler);
+    const signedIn = await firebase.auth().signInWithRedirect(authProvider);
   };
   render() {
     if (!this.state.uid) {
-      return <Login authenticate={this.authenticate} />;
+      return <Content>{this.state.loading ? <h1>Loading...</h1> : <Login authenticate={this.authenticate} />}</Content>;
     }
 
     return <Main logout={this.logout} uid={this.state.uid} name={this.state.name} />;

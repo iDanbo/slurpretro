@@ -1,25 +1,20 @@
-import React from 'react';
-import styled from 'styled-components';
-import AddCard from './AddCard';
-import DisplayCard from './DisplayCard';
+import React from 'react'
+import styled from 'styled-components'
+import AddCard from './AddCard'
+import DisplayCard from './DisplayCard'
 
 const Content = styled.div`
   display: grid;
   grid-gap: 1rem;
 
   justify-items: center;
-`;
+`
 
-class GoodOrBad extends React.Component {
+class Step extends React.Component {
   render() {
     return (
       <Content>
-        <AddCard
-          text={this.props.text}
-          color={this.props.color}
-          addStuff={this.props.addStuff}
-          removeStuff={this.props.removeStuff}
-        />
+        <AddCard text={this.props.text} color={this.props.color} addStuff={this.props.addStuff} />
         {this.props.textArray.map((text, index) => (
           <DisplayCard
             key={text}
@@ -30,8 +25,8 @@ class GoodOrBad extends React.Component {
           />
         ))}
       </Content>
-    );
+    )
   }
 }
 
-export default GoodOrBad;
+export default Step

@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import { Router, Link } from '@reach/router';
-import { createGlobalStyle } from 'styled-components';
-import App from './App';
-import Main from './components/Main';
-import typography from './utils/typography';
-import fontFiles from './fonts/index.js';
-import GodMode from './components/GodMode';
+import React, { Component } from 'react'
+import { Router } from '@reach/router'
+import { createGlobalStyle } from 'styled-components'
+import App from './App'
+import typography from './utils/typography'
+import fontFiles from './fonts/index.js'
+import GodMode from './components/GodMode'
+import WishList from './components/WishList'
 
 const GlobalStyles = createGlobalStyle`
  ${typography}
@@ -83,7 +83,7 @@ body {
       fontFiles.GothamRoundedLight
     }) format("opentype");
   } 
-`;
+`
 
 class Routes extends Component {
   render() {
@@ -91,12 +91,13 @@ class Routes extends Component {
       <React.Fragment>
         <GlobalStyles />
         <Router>
+          <WishList path="wishlist" />
           <GodMode path="godmode" />
           <App path="/*" />
         </Router>
       </React.Fragment>
-    );
+    )
   }
 }
 
-export default Routes;
+export default Routes

@@ -1,6 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
-import { log } from 'util';
+import React from 'react'
+import styled from 'styled-components'
 
 const Content = styled.div`
   display: grid;
@@ -19,7 +18,7 @@ const Content = styled.div`
     margin: 0;
     color: ${props => props.color};
   }
-`;
+`
 
 const InputWithButton = styled.div`
   display: grid;
@@ -56,16 +55,16 @@ const InputWithButton = styled.div`
     border-radius: 5px;
     text-align: center;
   }
-`;
+`
 
 class AddCard extends React.Component {
-  textRef = React.createRef();
+  textRef = React.createRef()
 
   handleClick = () => {
-    let text = this.textRef.current.value;
-    text && this.props.addStuff(text);
-    this.textRef.current.value = '';
-  };
+    let text = this.textRef.current.value
+    text && this.props.addStuff(text)
+    this.textRef.current.value = ''
+  }
 
   render() {
     return (
@@ -76,8 +75,8 @@ class AddCard extends React.Component {
           <button onClick={this.handleClick}>Add</button>
         </InputWithButton>
       </Content>
-    );
+    )
   }
 }
 
-export default AddCard;
+export default AddCard
