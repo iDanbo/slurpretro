@@ -14,7 +14,7 @@ const Content = styled.div`
   .title {
     color: rgb(80, 80, 80);
     font-weight: lighter;
-    max-width: 400px;
+    max-width: 600px;
     line-height: 1.5rem;
   }
   h4,
@@ -31,12 +31,14 @@ const Cards = styled.div`
   justify-content: center;
 `
 const PersonsWishes = styled.div`
+  margin: 1rem 0;
   padding: 1rem 0;
-`
-
-const Wishes = styled.div`
+  border: 1px dashed ${wishColor};
+  border-radius: 15px;
   max-width: 600px;
 `
+
+const Wishes = styled.div``
 
 class WishList extends Component {
   state = {
@@ -113,7 +115,6 @@ class WishList extends Component {
                       />
                     ))}
                   </Cards>
-                  <hr width="100%" />
                 </PersonsWishes>
               )
           )}
