@@ -104,7 +104,7 @@ class Main extends React.Component {
       if (number === '1')
         return (
           <Step
-            text="What are you proud of that happened during the past weeks you want to share with everyone? 🤩"
+            text="What are the things you are proud of in the past few weeks which you want to share with everyone? 🤩"
             color={goodColor}
             textArray={this.state.good}
             addStuff={this.setGood}
@@ -135,7 +135,7 @@ class Main extends React.Component {
         )
       return (
         <Step
-          text="What are you proud of that happened during the past weeks you want to share with everyone? 🤩"
+          text="What are the things you are proud of in the past few weeks which you want to share with everyone? 🤩"
           color={goodColor}
           textArray={this.state.good}
           addStuff={this.setGood}
