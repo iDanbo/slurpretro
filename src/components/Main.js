@@ -103,7 +103,7 @@ class Main extends React.Component {
       if (number === '1')
         return (
           <Step
-            text="What did you enjoy during the past couple of weeks? 🤩"
+            text="What are you proud of that happened during the past weeks you want to share with everyone? 🤩"
             color={goodColor}
             textArray={this.state.good}
             addStuff={this.setGood}
@@ -113,7 +113,7 @@ class Main extends React.Component {
       if (number === '2')
         return (
           <Step
-            text="What are the things that were blocking you or anything that you want to be improved? 💪"
+            text="Is there something holding you back from doing your best work? Is there anything that should be improved?💪"
             color={badColor}
             textArray={this.state.bad}
             addStuff={this.setBad}
@@ -123,7 +123,7 @@ class Main extends React.Component {
       if (number === '3')
         return (
           <Step
-            text="Whishlist"
+            text="Make some wishes that you want to happen at Slurp 🧚‍🌟"
             color={wishColorQuestion}
             textArray={this.state.wishes}
             addStuff={wish => {
@@ -134,7 +134,7 @@ class Main extends React.Component {
         )
       return (
         <Step
-          text="What did you enjoy during the past couple of weeks? 🤩"
+          text="What are you proud of that happened during the past weeks you want to share with everyone? 🤩"
           color={goodColor}
           textArray={this.state.good}
           addStuff={this.setGood}

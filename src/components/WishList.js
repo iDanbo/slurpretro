@@ -13,6 +13,8 @@ const Content = styled.div`
   .title {
     color: rgb(80, 80, 80);
     font-weight: lighter;
+    max-width: 400px;
+    line-height: 1.5rem;
   }
   h4,
   hr {
@@ -61,7 +63,12 @@ class WishList extends Component {
 
     return (
       <Content>
-        <h4 className="title">You are looking at the wish list now. Make them happen! 💫🌟</h4>
+        <h4 className="title">
+          You are looking at the wish list now. Make them happen! 💫🌟 <strong>Rafael, Manuel or Tero</strong> will mark
+          them green if the wish came true or will come true.
+          <br />
+          If the wish is not going to happen let the person know about it, only they can remove it from the wish list.
+        </h4>
         <Wishes>
           {people.map(
             person =>
