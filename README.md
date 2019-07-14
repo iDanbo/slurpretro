@@ -9,4 +9,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### What does this app do?
 
-It authenticates users with their google accounts, then there are two questions for them to answer. Later users can view all users answers by going to [http://localhost:3000/godmode](http://localhost:3000/godmode)
+This app is used for retro and it replaces pen and paper method with a web app to do the same job. Everybody answers a set of questions and a discussion is started after viewing everyones answers. 
+
+As a user, you would log into the app with your google account, the retro host will guide you through the questions and later together start a group discussion based on the answers.
