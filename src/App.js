@@ -26,6 +26,7 @@ class App extends Component {
       if (user) {
         this.authHandler({ user })
       }
+      this.setState({ loading: false })
     })
   }
 
