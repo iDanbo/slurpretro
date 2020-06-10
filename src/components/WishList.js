@@ -73,15 +73,10 @@ class WishList extends Component {
   }
 
   toggleWishColor = (person, index) => {
-    if (
-      this.state.name === 'Daniel Egerev' ||
-      this.state.name === 'Manuel Linnankoski' ||
-      this.state.name === 'Rafael Linnankoski' ||
-      this.state.name === 'Tero Rehula'
-    ) {
+    if (this.state.name === 'Daniel Egerev') {
       const firebaseState = { ...this.state.firebase }
       firebaseState[person].wishes[index].isGreen = !firebaseState[person].wishes[index].isGreen
-      this.setState({ firebase: firebaseState }, () => console.log(this.state.firebase))
+      this.setState({ firebase: firebaseState })
     }
   }
 
@@ -89,13 +84,7 @@ class WishList extends Component {
     const people = Object.keys(this.state.firebase)
     return (
       <Content>
-        <h4 className="title">
-          You are looking at the wish list now. Make them happen! 💫🌟
-          <br /> <strong>Rafael, Manuel or Tero</strong> will mark them green if the wish will come true. Once it came
-          true, please remove it from the wish list by going to the place where you created it.
-          <br />
-          If the wish is not going to happen, let the person know about it. Only they can remove it from the wish list.
-        </h4>
+        <h4 className="title">You are looking at the wish list now. Lets make them happen! 💫🌟</h4>
         <Wishes>
           {people.map(
             person =>

@@ -124,7 +124,7 @@ class Main extends React.Component {
       if (number === '3')
         return (
           <Step
-            text="Make some wishes that you want to happen at Slurp 🧚‍🌟"
+            text="What are some wishes or improvements that you want to see happening in our team?🧚‍🌟"
             color={wishColorQuestion}
             textArray={this.state.wishes.map(wish => wish.wish)}
             addStuff={wish => {

@@ -1,4 +1,4 @@
-## Slurp Retro web app
+## Retro web app
 
 In the project directory, you can run:
 
