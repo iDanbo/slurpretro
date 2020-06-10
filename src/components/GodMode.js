@@ -54,13 +54,13 @@ class GodMode extends Component {
         <h4 className="title">You are in God mode now 😇 Discuss how the red text bubbles can be solved.</h4>
 
         <Cards>
-          {bad.map(text => (
-            <GodDisplayCard text={text} color={badColor} margin="10px" />
+          {good.map(text => (
+            <GodDisplayCard text={text} color={goodColor} margin="10px" />
           ))}
         </Cards>
         <Cards>
-          {good.map(text => (
-            <GodDisplayCard text={text} color={goodColor} margin="10px" />
+          {bad.map(text => (
+            <GodDisplayCard text={text} color={badColor} margin="10px" />
           ))}
         </Cards>
       </Content>

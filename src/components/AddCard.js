@@ -71,7 +71,7 @@ class AddCard extends React.Component {
       <Content color={this.props.color}>
         <p>{this.props.text}</p>
         <InputWithButton color={this.props.color}>
-          <textarea ref={this.textRef} placeholder="Type here anything" />
+          <textarea ref={this.textRef} placeholder={this.props.placeholder || 'Type here anything'} />
           <button onClick={this.handleClick}>Add</button>
         </InputWithButton>
       </Content>

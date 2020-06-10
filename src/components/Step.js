@@ -14,7 +14,12 @@ class Step extends React.Component {
   render() {
     return (
       <Content>
-        <AddCard text={this.props.text} color={this.props.color} addStuff={this.props.addStuff} />
+        <AddCard
+          text={this.props.text}
+          color={this.props.color}
+          addStuff={this.props.addStuff}
+          placeholder={this.props.placeholder}
+        />
         {this.props.textArray.map((text, index) => (
           <DisplayCard
             key={text}

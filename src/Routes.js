@@ -11,7 +11,7 @@ const GlobalStyles = createGlobalStyle`
  ${typography}
 
 :root {
-  --main-color: #0055FF;
+  --main-color: #ffc800;
   --bg-color: #f8f8f8;
 }
 

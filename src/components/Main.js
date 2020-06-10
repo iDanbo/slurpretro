@@ -104,7 +104,7 @@ class Main extends React.Component {
       if (number === '1')
         return (
           <Step
-            text="What are the things you are proud of in the past few weeks which you want to share with everyone? 🤩"
+            text="What are the things you are proud of in the past month which you want to share with everyone? 🤩"
             color={goodColor}
             textArray={this.state.good}
             addStuff={this.setGood}
@@ -114,11 +114,12 @@ class Main extends React.Component {
       if (number === '2')
         return (
           <Step
-            text="Is there something holding you back from doing your best work? Is there anything that should be improved?💪"
+            text="Is there something holding you back from doing your best work? Is there anything that can be improved?💪"
             color={badColor}
             textArray={this.state.bad}
             addStuff={this.setBad}
             removeStuff={this.removeBad}
+            placeholder="We will try to solve this together!"
           />
         )
       if (number === '3')
@@ -131,6 +132,7 @@ class Main extends React.Component {
               this.setState({ wishes: [{ wish: wish, isGreen: false }, ...this.state.wishes] })
             }}
             removeStuff={this.removeWish}
+            placeholder="Anything that comes to mind matters!"
           />
         )
       return (
