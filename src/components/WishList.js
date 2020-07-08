@@ -73,8 +73,8 @@ class WishList extends Component {
   }
 
   toggleWishColor = (person, index) => {
-    if (this.state.name === 'Daniel Egerev') {
-      const firebaseState = { ...this.state.firebase }
+    const firebaseState = { ...this.state.firebase }
+    if (this.state.name === person) {
       firebaseState[person].wishes[index].isGreen = !firebaseState[person].wishes[index].isGreen
       this.setState({ firebase: firebaseState })
     }

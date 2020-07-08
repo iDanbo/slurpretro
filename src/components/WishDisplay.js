@@ -4,6 +4,7 @@ const Card = styled.div`
   display: inline-block;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 20px;
   background: white;
+  cursor: pointer;
   color: ${props => props.color};
   border-radius: 15px;
   max-width: 80%;
